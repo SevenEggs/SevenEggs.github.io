@@ -178,7 +178,7 @@
 <p>打印结果为：<br>———————————————————<br>构建persion。。。</p>
 <p>ApplicationContext创建步骤 :<br>ApplicationContext ctx = new ClassPathApplicationContext(“相对路径”);//根据xml文件的路径创建bean，相比于BeanFactory的创建路径对象，在创建bean工厂在输入路径对象来说简单了许多<br>System.out.println(“———————————————————“);<br>Persion p = ctx.getBean(“persion”,Persion.class);<br>System.out.println(p);</p>
 <p>打印结果为：<br>构建persion。。。<br>———————————————————</p>
-<p>比较输出结果发现<br>BeanFactory在bean启动Spring容器的时候并没有创建加载只有在获取一个对象的时候才进行加载创建bean对象，这种方式叫做懒加载；<br>ApplicationContext在启动Spring容器的时候就已经加载创建了所有的bean对象（Web应用常用这种方式因为在启动的Spring容器的时候已经全部准备好了bean对象）。</p>
+<p>比较输出结果发现<br>BeanFactory在bean启动Spring容器的时候并没有创建加载只有在获取一个对象的时候才进行加载创建bean对象，这种方式叫做懒加载；<br>ApplicationContext在启动Spring容器的时候就已经加载创建了所有的bean对象（Web应用常用这种方式因为在启动的Spring容器的时候已经全部准备好了bean对象）。如果也想在ApplicationContext中配置懒加载只要到相应的xml文件中 bean标签中添加lazy-init=”true” 即可，或在beans中一键配置所有bean为lazy-init=”true”</p>
 
       
 
